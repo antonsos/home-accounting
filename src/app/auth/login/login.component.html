@@ -1,17 +1,29 @@
 <p class="text-xs-center">Войдите для работы</p>
-<form>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="form-group">
-    <label for="email">Email</label>
+    <label
+    [ngClass]="{'form-label-error': form.get('email').touched && form.get('email').errors.required || form.get('email').touched && form.get('email').invalid}"
+      for="email">Email</label>
     <input
+      formControlName="email"
       type="text"
       class="form-control underlined"
       id="email"
       placeholder="Введите ваш email"
     >
+    <span
+      *ngIf="form.get('email').touched && form.get('email').errors.required"
+      class="form-text-help"
+    >Это поле объязательно</span>
+    <span
+      *ngIf="form.get('email').touched && form.get('email').invalid"
+      class="form-text-help"
+    >Не корректный email</span>
   </div>
   <div class="form-group">
     <label for="password">Пароль</label>
     <input
+      formControlName="password"
       type="password"
       class="form-control underlined"
       id="password"
