@@ -1,9 +1,16 @@
 <p class="text-xs-center">Войдите для работы</p>
+<div
+  *ngIf="message.text"
+  class="alert alert-{{message.type}}"
+>{{message.text}}</div>
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <div class="form-group">
-    <label
-    [ngClass]="{'form-label-error': form.get('email').touched && form.get('email').errors.required || form.get('email').touched && form.get('email').invalid}"
-      for="email">Email</label>
+  <div
+    [ngClass]="{
+      'has-error': form.get('email').touched && form.get('email').invalid
+    }"
+    class="form-group"
+  >
+    <label for="email">Email</label>
     <input
       formControlName="email"
       type="text"
@@ -12,15 +19,20 @@
       placeholder="Введите ваш email"
     >
     <span
-      *ngIf="form.get('email').touched && form.get('email').errors.required"
-      class="form-text-help"
+      *ngIf="form.get('email').touched && form.get('email').errors?.required"
+      class="form-help-text"
     >Это поле объязательно</span>
     <span
-      *ngIf="form.get('email').touched && form.get('email').invalid"
-      class="form-text-help"
+      *ngIf="form.get('email').touched && form.get('email').errors?.email"
+      class="form-help-text"
     >Не корректный email</span>
   </div>
-  <div class="form-group">
+  <div
+    [ngClass]="{
+      'has-error': form.get('password').touched && form.get('password').invalid
+    }"
+    class="form-group"
+  >
     <label for="password">Пароль</label>
     <input
       formControlName="password"
@@ -29,13 +41,25 @@
       id="password"
       placeholder="Пароль"
     >
+    <span
+      *ngIf="form.get('password').touched && form.get('password').errors?.required"
+      class="form-help-text"
+    >Это поле объязательно</span>
+    <span
+      *ngIf="form.get('password').touched && form.get('password').errors?.minlength"
+      class="form-help-text"
+    >Минимальная длина пароля {{form.get('password').errors?.minlength.requiredLength}} символов</span>
   </div>
   <div class="form-group">
-    <button type="submit" class="btn btn-block btn-primary">Войти</button>
+    <button
+      [disabled]="form.invalid"
+      type="submit"
+      class="btn btn-block btn-primary"
+    >Войти</button>
   </div>
   <div class="form-group">
     <p class="text-muted text-xs-center">
-      Нет аккаунта? <a href="#">Зарегистрироваться!</a>
+      Нет аккаунта? <a [routerLink]="'/registration'" >Зарегистрироваться!</a>
     </p>
   </div>
 </form>

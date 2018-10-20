@@ -6,6 +6,9 @@ import {AuthModule} from './auth/auth.module';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import {UsersServices} from './shared/services/users.services';
+import {HttpClientModule} from '@angular/common/http';
+import {AuthService} from './shared/services/auth.service';
 
 @NgModule({
   declarations: [
@@ -15,9 +18,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AuthModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ UsersServices, AuthService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
