@@ -5,10 +5,10 @@ import { AppComponent } from './app.component';
 import {AuthModule} from './auth/auth.module';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
-import { ReactiveFormsModule } from '@angular/forms';
-import {UsersServices} from './shared/services/users.services';
+import {UsersService} from './shared/services/users.service';
 import {HttpClientModule} from '@angular/common/http';
 import {AuthService} from './shared/services/auth.service';
+import {SystemModule} from './system/system.module';
 
 @NgModule({
   declarations: [
@@ -19,9 +19,10 @@ import {AuthService} from './shared/services/auth.service';
     AuthModule,
     AppRoutingModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    SystemModule,
   ],
-  providers: [ UsersServices, AuthService ],
+  providers: [ UsersService, AuthService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

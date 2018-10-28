@@ -5,6 +5,24 @@
       "email": "wfm@mail.ru",
       "password": "12345678",
       "name": "Администратор"
+    },
+    {
+      "email": "anton1986.2012@gmail.com",
+      "password": "123456",
+      "name": "Антон Никулин",
+      "id": 2
+    },
+    {
+      "email": "test@gmail.com",
+      "password": "12345678",
+      "name": "Test",
+      "id": 3
+    },
+    {
+      "email": "test1@gmail.com",
+      "password": "123456",
+      "name": "Test1",
+      "id": 4
     }
   ],
   "bill": {

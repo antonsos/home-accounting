@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import {UsersServices} from '../../shared/services/users.services';
+import {UsersService} from '../../shared/services/users.service';
 import {UserModel} from '../../shared/models/user.model';
 import {MessageModel} from '../../shared/models/message.model';
 import {AuthService} from '../../shared/services/auth.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,13 +17,25 @@ export class LoginComponent implements OnInit {
   message: MessageModel;
 
   constructor(
-    private userService: UsersServices,
+    private userService: UsersService,
     private authService: AuthService,
     private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
     this.message = new MessageModel('danger', '');
+
+    this.route.queryParams
+      .subscribe((params: Params) => {
+        if (params['nowCanLogin']) {
+          this.showMessage({
+            text: 'Поздравляем вы зарегестрированны!',
+            type: 'success'
+          });
+        }
+      });
+
     this.form = new FormGroup({
       'email': new FormControl('', [
         Validators.required,
@@ -36,8 +48,8 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  private showMessage(text: string, type: string = 'danger') {
-    this.message = new MessageModel(type, text);
+  private showMessage(message: MessageModel) {
+    this.message = message;
 
     window.setTimeout(() => {
       this.message.text = '';
@@ -46,19 +58,28 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.userService.getUserByEmail(this.form.value.email)
-      .subscribe((user: any) => {
+      .subscribe((user: UserModel) => {
         if (user) {
           if (user.password === this.form.value.password) {
-            this.showMessage(`Добрый день ${user.name}`, 'success');
+            this.showMessage({
+              text: `Добрый день ${user.name}`,
+              type: 'success'
+            });
             this.authService.login();
             window.localStorage.setItem('user', JSON.stringify(user));
-            // this.router.navigate([]);
+            this.router.navigate(['/system', 'bill']);
             this.message.text = '';
           } else {
-            this.showMessage('не верный пароль');
+            this.showMessage({
+              text: 'не верный пароль',
+              type: 'danger'
+            });
           }
         } else {
-          this.showMessage('пользователь не наеден');
+          this.showMessage({
+            text: 'пользователь не наеден',
+            type: 'danger'
+          });
         }
       });
   }
