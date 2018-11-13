@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  billUrl: 'http://localhost:3000/bill',
-  currencyUrl: 'http://localhost:3000/bill'
+  baseUrl: 'http://localhost:3000',
+  currencyUrl: 'http://data.fixer.io/api/latest?access_key=1b3f18de90718e4c530041928d012f1b'
 };
 
 /*

@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BillPsgeComponent } from './bill-psge.component';
+import { BillPsgeComponent } from './bill-page.component';
 
 describe('BillPsgeComponent', () => {
   let component: BillPsgeComponent;

@@ -1,0 +1,19 @@
+<div class="title-block">
+  <h3 class="title pull-left">
+    Страница счета <span class="sparkline bar"></span>
+  </h3>
+  <div class="pull-right">
+    <button class="btn-sm btn btn-primary-outline">
+      <i class="fa fa-refresh" (click)="refreshCurrency()"></i>
+    </button>
+  </div>
+</div>
+<section class="section">
+  <div class="row text-center" *ngIf="!isLoaded">
+    Loading ...
+  </div>
+  <div class="row" *ngIf="isLoaded">
+    <app-bill-card [eur]="eur" [billValue]="billValue" [usd]="usd"></app-bill-card>
+    <app-currency-card [eur]="eur" [usd]="usd" [date]="date"></app-currency-card>
+  </div>
+</section>

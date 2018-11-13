@@ -26,7 +26,7 @@
     }
   ],
   "bill": {
-    "value": 100000,
+    "value": 195000,
     "currency": "RUB"
   },
   "categories": [
@@ -41,9 +41,39 @@
       "id": 2
     },
     {
-      "id": 3,
       "name": "Машина",
-      "capacity": 7000
+      "capacity": 7000,
+      "id": 3
+    },
+    {
+      "name": "Продукты",
+      "capacity": 1,
+      "id": 4
+    },
+    {
+      "name": "Новая",
+      "capacity": 5,
+      "id": 5
+    },
+    {
+      "name": "Ноутбук",
+      "capacity": 20,
+      "id": 6
+    },
+    {
+      "name": "Олово",
+      "capacity": 1,
+      "id": 7
+    },
+    {
+      "name": "Сад",
+      "capacity": 100,
+      "id": 8
+    },
+    {
+      "name": "Ножи",
+      "capacity": 200,
+      "id": 9
     }
   ],
   "events": [
@@ -86,6 +116,76 @@
       "date": "10.06.2017 14:01:58",
       "id": 5,
       "description": "Заправка + проход ТО"
+    },
+    {
+      "amount": 5000,
+      "category": 1,
+      "date": "13.11.2018, 13:47:02",
+      "description": "Дрова для топки",
+      "id": 6
+    },
+    {
+      "amount": 1000,
+      "category": 1,
+      "date": "13.11.2018, 14:25:12",
+      "description": "Test",
+      "id": 7
+    },
+    {
+      "type": "outcome",
+      "amount": 6000,
+      "category": 1,
+      "date": "13.11.2018, 14:33:51",
+      "description": "Сено",
+      "id": 8
+    },
+    {
+      "type": "outcome",
+      "amount": 1000,
+      "category": 1,
+      "date": "13.11.2018, 15:15:29",
+      "description": "Уборка",
+      "id": 9
+    },
+    {
+      "type": "outcome",
+      "amount": 1000,
+      "category": 1,
+      "date": "13.11.2018, 15:17:00",
+      "description": "Уборка снега",
+      "id": 10
+    },
+    {
+      "type": "outcome",
+      "amount": 1000,
+      "category": 1,
+      "date": "13.11.2018, 15:20:16",
+      "description": "лыжи",
+      "id": 11
+    },
+    {
+      "type": "outcome",
+      "amount": 1000,
+      "category": 1,
+      "date": "13.11.2018, 15:21:24",
+      "description": "навоз",
+      "id": 12
+    },
+    {
+      "type": "outcome",
+      "amount": 1000,
+      "category": 1,
+      "date": "13.11.2018, 15:30:19",
+      "description": "Розетки",
+      "id": 13
+    },
+    {
+      "type": "income",
+      "amount": 100000,
+      "category": 1,
+      "date": "13.11.2018, 15:35:13",
+      "description": "Зарплата",
+      "id": 14
     }
   ]
 }
