@@ -16,7 +16,7 @@ export class AddCategoryComponent implements OnInit, OnDestroy {
 
   sub1: Subscription;
   message: MessageModel;
-  @Output() onCategoryAdd = new EventEmitter<CategoryModel>();
+  @Output() categoryOnAdd = new EventEmitter<CategoryModel>();
   public isValid: boolean;
 
   public onFormSubmit(form: NgForm) {
@@ -27,7 +27,7 @@ export class AddCategoryComponent implements OnInit, OnDestroy {
       this.sub1 = this.categoryService.addCategory(data)
         .subscribe(
           (category: CategoryModel) => {
-            this.onCategoryAdd.emit(category);
+            this.categoryOnAdd.emit(category);
             form.reset();
 
             this.message = new MessageModel('success', 'Категория успешно создана');

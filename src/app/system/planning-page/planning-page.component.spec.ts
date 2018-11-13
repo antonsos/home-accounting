@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PlanningPsgeComponent } from './planning-psge.component';
+import { PlanningPageComponent } from './planning-page.component';
 
-describe('PlanningPsgeComponent', () => {
-  let component: PlanningPsgeComponent;
-  let fixture: ComponentFixture<PlanningPsgeComponent>;
+describe('PlanningPageComponent', () => {
+  let component: PlanningPageComponent;
+  let fixture: ComponentFixture<PlanningPageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PlanningPsgeComponent ]
+      declarations: [ PlanningPageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PlanningPsgeComponent);
+    fixture = TestBed.createComponent(PlanningPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

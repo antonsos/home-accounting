@@ -1,0 +1,60 @@
+<div class="title-block">
+  <h3 class="title">
+    Страница планирования <span class="sparkline bar"></span>
+  </h3>
+</div>
+<section
+  *ngIf="!isLoaded"
+  class="section text-center"
+>
+  Loading ...
+</section>
+<section
+  *ngIf="isLoaded"
+  class="section"
+>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header card-header-sm bordered">
+          <div class="header-block">
+            <h3 class="title">Расходы</h3>
+          </div>
+          <h5 class="planning-expenses pull-right">
+            Общий остаток: <span class="text-success">{{bill.value | number:'1.2-2'}} Р</span>
+          </h5>
+        </div>
+
+        <div class="card-block">
+          <div class="row" *ngFor="let category of categories">
+            <div class="col-xs-6">
+              <div class="n-progress">
+                <div
+                  class="progress-bar"
+                  [ngClass]="getClass(getPercent(category, true))"
+                  [ngStyle]="{width: getPercent(category)}"
+                >
+                  <span>{{category.name}}</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <p>
+                <span
+                  class="text-success"
+                  [ngClass]="'text-' + getClass(getPercent(category, true))"
+                >{{getCategoryAmount(category) | number:'1.2-2'}}</span>
+                из
+                <span class="text-primary">{{category.capacity | number:'1.2-2'}}</span>
+                |
+                осталось <span
+                [ngClass]="'text-' + getClass(getPercent(category, true))"
+                >{{category.capacity - getCategoryAmount(category) | number:'1.2-2'}}</span> (руб.)
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

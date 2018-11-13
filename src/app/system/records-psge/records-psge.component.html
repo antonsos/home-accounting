@@ -17,12 +17,12 @@
     <app-add-event [categories]="categories"></app-add-event>
     <app-edit-category
       [categories]="categories"
-      (onEditCategory)="editCategory($event)"
+      (editOnCategory)="editCategory($event)"
     ></app-edit-category>
   </div>
   <div class="row">
     <app-add-category
-      (onCategoryAdd)="newCategoryAdd($event)"
+      (categoryOnAdd)="newCategoryAdd($event)"
     ></app-add-category>
   </div>
 </section>

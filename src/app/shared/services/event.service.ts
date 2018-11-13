@@ -11,4 +11,8 @@ export class EventService {
   addEvent(categoryEvent: EventModel): Observable<any> {
     return this.http.post(`${environment.baseUrl}/events`, categoryEvent);
   }
+
+  getEvents(): Observable<any> {
+    return this.http.get(`${environment.baseUrl}/events`);
+  }
 }

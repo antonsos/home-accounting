@@ -6,7 +6,7 @@ import {SystemRoutingModule} from './system-routing.module';
 import { SystemComponent } from './system.component';
 import { BillPageComponent } from './bill-psge/bill-page.component';
 import { HistoryPsgeComponent } from './history-psge/history-psge.component';
-import { PlanningPsgeComponent } from './planning-psge/planning-psge.component';
+import { PlanningPageComponent } from './planning-page/planning-page.component';
 import { RecordsPsgeComponent } from './records-psge/records-psge.component';
 import { HeaderComponent } from './header/header.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
@@ -27,7 +27,7 @@ import {EventService} from '../shared/services/event.service';
     SystemComponent,
     BillPageComponent,
     HistoryPsgeComponent,
-    PlanningPsgeComponent,
+    PlanningPageComponent,
     RecordsPsgeComponent,
     HeaderComponent,
     SideBarComponent,

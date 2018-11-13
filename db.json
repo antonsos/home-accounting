@@ -26,7 +26,7 @@
     }
   ],
   "bill": {
-    "value": 195000,
+    "value": 193000,
     "currency": "RUB"
   },
   "categories": [
@@ -186,6 +186,30 @@
       "date": "13.11.2018, 15:35:13",
       "description": "Зарплата",
       "id": 14
+    },
+    {
+      "type": "outcome",
+      "amount": 1000,
+      "category": 1,
+      "date": "13.11.2018, 18:54:15",
+      "description": "Уборка снега",
+      "id": 15
+    },
+    {
+      "type": "outcome",
+      "amount": 500,
+      "category": 1,
+      "date": "13.11.2018, 18:54:41",
+      "description": "Сено",
+      "id": 16
+    },
+    {
+      "type": "outcome",
+      "amount": 500,
+      "category": 1,
+      "date": "13.11.2018, 18:55:04",
+      "description": "Уборка снега",
+      "id": 17
     }
   ]
 }

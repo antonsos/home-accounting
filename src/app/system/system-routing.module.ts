@@ -4,7 +4,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {SystemComponent} from './system.component';
 import {BillPageComponent} from './bill-psge/bill-page.component';
 import {HistoryPsgeComponent} from './history-psge/history-psge.component';
-import {PlanningPsgeComponent} from './planning-psge/planning-psge.component';
+import {PlanningPageComponent} from './planning-page/planning-page.component';
 import {RecordsPsgeComponent} from './records-psge/records-psge.component';
 
 const routes: Routes = [
@@ -12,7 +12,7 @@ const routes: Routes = [
     children: [
       {path: 'bill', component: BillPageComponent},
       {path: 'history', component: HistoryPsgeComponent},
-      {path: 'planning', component: PlanningPsgeComponent},
+      {path: 'planning', component: PlanningPageComponent},
       {path: 'records', component: RecordsPsgeComponent},
     ]}
 ];

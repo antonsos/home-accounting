@@ -17,7 +17,7 @@ export class EditCategoryComponent implements OnInit, OnDestroy {
   sub1: Subscription;
   message: MessageModel;
   @Input() categories: CategoryModel[];
-  @Output() onEditCategory = new EventEmitter<CategoryModel>();
+  @Output() editOnCategory = new EventEmitter<CategoryModel>();
   public currentCategory: CategoryModel;
 
   public onFormSubmit(form: NgForm) {
@@ -29,7 +29,7 @@ export class EditCategoryComponent implements OnInit, OnDestroy {
       this.sub1 = this.categoryService.editCategory(data)
         .subscribe(
           (category: CategoryModel) => {
-            this.onEditCategory.emit(category);
+            this.editOnCategory.emit(category);
             console.log(category);
 
             this.message.text = 'Категория успешно отредактирована';
