@@ -1,0 +1,13 @@
+.category {
+  position: relative;
+}
+
+.category-popup {
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  height: 70px;
+  color: #00fd2d;
+  background-color: #fff;
+}
