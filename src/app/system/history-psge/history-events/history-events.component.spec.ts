@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HistoryPsgeComponent } from './history-psge.component';
+import { HistoryEventsComponent } from './history-events.component';
 
-describe('HistoryPsgeComponent', () => {
-  let component: HistoryPsgeComponent;
-  let fixture: ComponentFixture<HistoryPsgeComponent>;
+describe('HistoryEventsComponent', () => {
+  let component: HistoryEventsComponent;
+  let fixture: ComponentFixture<HistoryEventsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HistoryPsgeComponent ]
+      declarations: [ HistoryEventsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HistoryPsgeComponent);
+    fixture = TestBed.createComponent(HistoryEventsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

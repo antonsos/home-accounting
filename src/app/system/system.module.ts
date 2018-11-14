@@ -5,7 +5,7 @@ import {SharedModule} from '../shared/shared.module';
 import {SystemRoutingModule} from './system-routing.module';
 import { SystemComponent } from './system.component';
 import { BillPageComponent } from './bill-psge/bill-page.component';
-import { HistoryPsgeComponent } from './history-psge/history-psge.component';
+import { HistoryPageComponent } from './history-psge/history-page.component';
 import { PlanningPageComponent } from './planning-page/planning-page.component';
 import { RecordsPsgeComponent } from './records-psge/records-psge.component';
 import { HeaderComponent } from './header/header.component';
@@ -20,13 +20,26 @@ import { EditCategoryComponent } from './records-psge/edit-category/edit-categor
 import { AddEventComponent } from './records-psge/add-event/add-event.component';
 import {CategoryService} from '../shared/services/category.service';
 import {EventService} from '../shared/services/event.service';
+import { HistoryChartComponent } from './history-psge/history-chart/history-chart.component';
+import { HistoryEventsComponent } from './history-psge/history-events/history-events.component';
+import { HistoryDetailComponent } from './history-psge/history-detail/history-detail.component';
+import { HistoryFilterComponent } from './history-psge/history-filter/history-filter.component';
+import {NgxChartsModule} from '@swimlane/ngx-charts';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
-  imports: [CommonModule, SharedModule, SystemRoutingModule,  HttpClientModule],
+  imports: [
+    CommonModule,
+    SharedModule,
+    SystemRoutingModule,
+    HttpClientModule,
+    NgxChartsModule,
+    BrowserAnimationsModule
+  ],
   declarations: [
     SystemComponent,
     BillPageComponent,
-    HistoryPsgeComponent,
+    HistoryPageComponent,
     PlanningPageComponent,
     RecordsPsgeComponent,
     HeaderComponent,
@@ -36,7 +49,11 @@ import {EventService} from '../shared/services/event.service';
     CurrencyCardComponent,
     AddCategoryComponent,
     EditCategoryComponent,
-    AddEventComponent
+    AddEventComponent,
+    HistoryChartComponent,
+    HistoryEventsComponent,
+    HistoryDetailComponent,
+    HistoryFilterComponent
   ],
   providers: [ BillService, CategoryService, EventService ]
 })

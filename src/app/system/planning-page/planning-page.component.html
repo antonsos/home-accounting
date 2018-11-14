@@ -27,7 +27,7 @@
 
         <div class="card-block">
           <div class="row" *ngFor="let category of categories">
-            <div class="col-xs-6">
+            <div *ngIf="getPercent(category, true)" class="col-xs-6">
               <div class="n-progress">
                 <div
                   class="progress-bar"
@@ -38,7 +38,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-xs-6">
+            <div *ngIf="getPercent(category, true)" class="col-xs-6">
               <p>
                 <span
                   class="text-success"
