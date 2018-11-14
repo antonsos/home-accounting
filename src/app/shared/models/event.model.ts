@@ -6,5 +6,6 @@ export class EventModel {
     public date: string,
     public description: string,
     public id?: number,
+    public catName?: string,
   ) {}
 }

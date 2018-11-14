@@ -26,6 +26,7 @@ import { HistoryDetailComponent } from './history-psge/history-detail/history-de
 import { HistoryFilterComponent } from './history-psge/history-filter/history-filter.component';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {FilterPipe} from '../shared/pipes/filter.pipe';
 
 @NgModule({
   imports: [
@@ -53,7 +54,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     HistoryChartComponent,
     HistoryEventsComponent,
     HistoryDetailComponent,
-    HistoryFilterComponent
+    HistoryFilterComponent,
+    FilterPipe,
   ],
   providers: [ BillService, CategoryService, EventService ]
 })
