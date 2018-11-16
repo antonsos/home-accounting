@@ -16,6 +16,10 @@ export class CategoryService {
     return this.http.put(`${environment.baseUrl}/categories/${data.id}`, data);
   }
 
+  getCategory(id: number) {
+    return this.http.get(`${environment.baseUrl}/categories/${id}`);
+  }
+
   getCategories(): Observable<any> {
     return this.http.get(`${environment.baseUrl}/categories`);
   }

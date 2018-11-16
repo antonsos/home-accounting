@@ -33,6 +33,11 @@ export class LoginComponent implements OnInit {
             text: 'Поздравляем вы зарегестрированны!',
             type: 'success'
           });
+        } else if (params['accessDenied']) {
+          this.showMessage({
+            text: 'Вы не авторизованы',
+            type: 'warning'
+          });
         }
       });
 

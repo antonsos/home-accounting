@@ -50,7 +50,7 @@
                 <span class="label {{getEventClass(event)}}">{{event.type === 'outcome' ? 'Расход' : 'Доход'}}</span>
               </td>
               <td class="text-lg-center">
-                <a href="#" class="btn btn-primary-outline">Открыть</a>
+                <a [routerLink]="event.id" class="btn btn-primary-outline">Открыть</a>
               </td>
             </tr>
             </tbody>

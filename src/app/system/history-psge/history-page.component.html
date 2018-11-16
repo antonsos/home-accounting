@@ -1,7 +1,15 @@
-<div class="title-block">
-  <h3 class="title">
+<div class="title-block title-block--center">
+  <h3 class="title title--mg-right">
     Страница истории <span class="sparkline bar"></span>
   </h3>
+  <div class="pull-right">
+    <button
+      (click)="openFilter()"
+      class="btn-sm btn btn-primary-outline"
+    >
+      <i class="fa fa-filter"></i>
+    </button>
+  </div>
 </div>
 <div
   *ngIf="!isLoaded"
@@ -17,8 +25,14 @@
 
   <app-history-events
     [categories]="categories"
-    [events]="events"
+    [events]="filterEvents"
   ></app-history-events>
 
-  <app-history-filter></app-history-filter>
+  <div *ngIf="isVisibleFilter">
+    <app-history-filter
+      (applyFilterOn)="filterOnApply($event)"
+      (closeFilterOn)="filterOnClose()"
+      [categories]="categories"
+    ></app-history-filter>
+  </div>
 </div>

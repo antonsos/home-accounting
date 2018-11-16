@@ -7,9 +7,10 @@ import {HistoryPageComponent} from './history-psge/history-page.component';
 import {PlanningPageComponent} from './planning-page/planning-page.component';
 import {RecordsPsgeComponent} from './records-psge/records-psge.component';
 import {HistoryDetailComponent} from './history-psge/history-detail/history-detail.component';
+import {AuthGuard} from '../shared/services/auth.guard';
 
 const routes: Routes = [
-  {path: 'system', component: SystemComponent,
+  {path: '', component: SystemComponent, canActivate: [AuthGuard],
     children: [
       {path: 'bill', component: BillPageComponent},
       {path: 'history', component: HistoryPageComponent},

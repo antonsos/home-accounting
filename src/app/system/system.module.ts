@@ -25,7 +25,6 @@ import { HistoryEventsComponent } from './history-psge/history-events/history-ev
 import { HistoryDetailComponent } from './history-psge/history-detail/history-detail.component';
 import { HistoryFilterComponent } from './history-psge/history-filter/history-filter.component';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FilterPipe} from '../shared/pipes/filter.pipe';
 
 @NgModule({
@@ -35,7 +34,6 @@ import {FilterPipe} from '../shared/pipes/filter.pipe';
     SystemRoutingModule,
     HttpClientModule,
     NgxChartsModule,
-    BrowserAnimationsModule
   ],
   declarations: [
     SystemComponent,

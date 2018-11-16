@@ -15,4 +15,8 @@ export class EventService {
   getEvents(): Observable<any> {
     return this.http.get(`${environment.baseUrl}/events`);
   }
+
+  getEvent(id: string): Observable<any> {
+    return this.http.get(`${environment.baseUrl}/events/${id}`);
+  }
 }

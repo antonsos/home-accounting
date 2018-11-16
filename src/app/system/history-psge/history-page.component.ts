@@ -1,4 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
+import * as moment from 'moment';
 import {EventService} from '../../shared/services/event.service';
 import {CategoryService} from '../../shared/services/category.service';
 import {Observable, Subscription} from 'rxjs';
@@ -21,22 +22,57 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
   public isLoaded: boolean;
   public categories: CategoryModel[];
   public events: EventModel[];
+  public filterEvents: EventModel[] = [];
   public chartData: any[] = [];
+  public isVisibleFilter = false;
 
   calculateDataChart() {
-    this.events.map(event => {
+    this.filterEvents.map(event => {
       const category = this.categories.find(item => event.category === item.id);
 
       if (event.type === 'outcome') {
-        if (this.chartData[category.id - 1]) {
-          const value = this.chartData[category.id - 1]['value'] + event.amount;
-          this.chartData[category.id - 1]['value'] = value;
+        const dataEvent = this.chartData.find(item => item.name === category.name);
+        if (dataEvent) {
+          dataEvent['value'] += event.amount;
         } else {
-          this.chartData[category.id - 1] = {name: category.name, value: event.amount};
+          this.chartData.push({name: category.name, value: event.amount});
         }
       }
     });
-    console.log(this.chartData)
+  }
+
+  openFilter() {
+    this.isVisibleFilter = !this.isVisibleFilter;
+  }
+
+  filterOnApply(filter) {
+    this.setCopyFilter();
+
+    const startPerion = moment().startOf(filter.period).startOf('d');
+    const endPerion = moment().endOf(filter.period).endOf('d');
+
+    this.filterEvents = this.filterEvents
+      .filter(item => filter.types.indexOf(item.type) !== -1)
+      .filter(item => filter.categories.indexOf(item.category) === -1)
+      .filter(item => {
+        const momentData = moment(item.date, 'DD.MM.YYYY HH:mm:ss');
+        return momentData.isBetween(startPerion, endPerion);
+      });
+
+    this.chartData = [];
+    this.calculateDataChart();
+    this.isVisibleFilter = !this.isVisibleFilter;
+  }
+
+  filterOnClose() {
+    this.isVisibleFilter = !this.isVisibleFilter;
+    this.setCopyFilter();
+    this.chartData = [];
+    this.calculateDataChart();
+  }
+
+  private setCopyFilter() {
+    this.filterEvents = this.events;
   }
 
   ngOnInit() {
@@ -47,6 +83,7 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
       this.categories = data[0];
       this.events = data[1];
 
+      this.setCopyFilter();
       this.calculateDataChart();
       this.isLoaded = true;
     });

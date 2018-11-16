@@ -1,0 +1,8 @@
+.title-block--center {
+  display: flex;
+  align-items: center;
+}
+
+.title--mg-right {
+  margin-right: auto;
+}

@@ -18,7 +18,7 @@ export class HistoryEventsComponent implements OnInit {
   public searchField = 'amount';
 
   getEventClass(event: EventModel): string {
-    return event.type === 'income' ? 'label-success' : 'label-danger';
+    return event.type === 'income' ? 'card-success' : 'card-danger';
   }
 
   changeCriteria(field: string) {

@@ -1,8 +1,12 @@
-<div class="modal fade">
+<div class="modal fade in">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close">
+        <button
+          (click)="closeFilter()"
+          type="button"
+          class="close"
+        >
           <span>×</span>
         </button>
         <h4 class="modal-title">Фильтр</h4>
@@ -10,37 +14,65 @@
       <div class="modal-body">
         <div class="form-group">
           <label class="control-label" for="period">Выберите период</label>
-          <select class="form-control" id="period">
-            <option>тип</option>
+          <select
+            [(ngModel)]="selectedPeriod"
+            class="form-control"
+            id="period"
+          >
+            <option
+              *ngFor="let period of timePeriods" [value]="period.type"
+            >{{period.label}}</option>
           </select>
         </div>
-        <div class="form-group">
+        <div
+          class="form-group"
+        >
           <label class="control-label">Выберите тип события</label>
-          <div>
+          <div
+            *ngFor="let type of typesRadio"
+          >
             <label>
               <input
                 class="checkbox"
                 type="checkbox"
+                [name]="type.type"
+                [value]="type.type"
+                (change)="changeType($event.target)"
               >
-              <span>еуче</span>
+              <span>{{type.label}}</span>
             </label>
           </div>
         </div>
-        <div class="form-group">
+        <div
+          class="form-group"
+        >
           <label class="control-label">Выберите категории</label>
-          <div>
+          <div
+            *ngFor="let category of categories"
+          >
             <label>
               <input
                 class="checkbox"
                 type="checkbox"
+                [name]="category.id"
+                [value]="category.id"
+                (change)="changeCategories($event.target)"
               >
-              <span>еуче</span>
+              <span>{{category.name}}</span>
             </label>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary">Отмена</button>
-          <button type="button" class="btn btn-primary">Применить</button>
+          <button
+            (click)="closeFilter()"
+            type="button"
+            class="btn btn-secondary"
+          >Отмена</button>
+          <button
+            (click)="applyFilter()"
+            type="button"
+            class="btn btn-primary"
+          >Применить</button>
         </div>
       </div>
     </div>

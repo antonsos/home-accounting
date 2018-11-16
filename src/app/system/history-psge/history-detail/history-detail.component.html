@@ -1,3 +1,43 @@
-<p>
-  history-detail works!
-</p>
+<article class="content">
+  <div
+    *ngIf="!isLoaded"
+    class="row"
+  >
+    Loading ...
+  </div>
+  <div
+    *ngIf="isLoaded"
+    class="row"
+  >
+    <div class="title-block">
+      <h3 class="title">
+        <a routerLink="/system/history"><i class="fa fa-arrow-left"></i> Страница записи № {{eventDetail.id}}</a>
+        <span class="sparkline bar"></span>
+      </h3>
+    </div>
+    <section class="section">
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+          <div class="card {{eventDetail.type === 'income' ? 'card-success' : 'card-danger'}}">
+            <div class="card-header">
+              <div class="header-block">
+                <p class="title">{{eventDetail.type === 'income' ? 'Доход' : 'Расход'}}</p>
+              </div>
+            </div>
+            <div class="card-block">
+              <ul>
+                <li>Сумма: <strong>{{eventDetail.amount}} P</strong></li>
+                <li>Категория: <strong>{{categoryDetail.name}}</strong></li>
+                <li>
+                  <p class="m-b-0"><strong>Комментарий: </strong></p>
+                  <p class="text-info">{{eventDetail.description}}</p>
+                </li>
+              </ul>
+            </div>
+            <div class="card-footer">{{eventDetail.date}}</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</article>
