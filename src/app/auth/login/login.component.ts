@@ -5,11 +5,13 @@ import {UserModel} from '../../shared/models/user.model';
 import {MessageModel} from '../../shared/models/message.model';
 import {AuthService} from '../../shared/services/auth.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
+import {fadeTrigger} from '../../shared/animations/faid.animation';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  animations: [fadeTrigger]
 })
 export class LoginComponent implements OnInit {
 
